@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/status_bg"
+            android:padding="12dp"
+            android:textSize="15sp" />
+
+        <!-- ① 推送目标 -->
+        <TextView
+            style="@style/Section"
+            android:text="① 推送到 iPhone（Bark）" />
+
+        <TextView
+            style="@style/Hint"
+            android:text="在 iPhone 的 App Store 搜索安装免费的「Bark」，打开后复制首页那条以 https://api.day.app/ 开头的链接，整条粘贴到下面即可。" />
+
+        <EditText
+            android:id="@+id/etKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="粘贴 Bark 链接或 Key"
+            android:importantForAutofill="no"
+            android:inputType="textUri"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/etServer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="服务器（一般不用改）"
+            android:importantForAutofill="no"
+            android:inputType="textUri"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="保存" />
+
+            <Button
+                android:id="@+id/btnTest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="发一条测试" />
+        </LinearLayout>
+
+        <!-- ② 权限 -->
+        <TextView
+            style="@style/Section"
+            android:text="② 权限与后台运行" />
+
+        <TextView
+            android:id="@+id/tvPerms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnGrant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="授予短信和通知权限" />
+
+        <Button
+            android:id="@+id/btnBattery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="允许后台运行（不限制电池）" />
+
+        <Button
+            android:id="@+id/btnAppSettings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开本应用的系统设置" />
+
+        <TextView
+            style="@style/Hint"
+            android:text="小米 / 红米：应用设置 → 权限 → 打开「读取通知类短信」，并打开「自启动」，省电策略选「无限制」。\n华为 / 荣耀：应用启动管理 → 关闭自动管理，三项全部打开。\nOPPO / vivo / 一加：允许自启动、允许后台运行。" />
+
+        <!-- ③ 开关 -->
+        <TextView
+            style="@style/Section"
+            android:text="③ 开关" />
+
+        <Switch
+            android:id="@+id/swEnabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:text="启用短信转发"
+            android:textSize="15sp" />
+
+        <Switch
+            android:id="@+id/swCodesOnly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:text="只转发验证码短信（其他短信不发）"
+            android:textSize="15sp" />
+
+        <Switch
+            android:id="@+id/swKeepAlive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            android:text="显示常驻通知（防止被系统杀后台，建议开）"
+            android:textSize="15sp" />
+
+        <!-- ④ 记录 -->
+        <TextView
+            style="@style/Section"
+            android:text="④ 最近记录（只存在这台手机上）" />
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="6dp"
+            android:textIsSelectable="true"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnClearLog"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="清空记录" />
+    </LinearLayout>
+</ScrollView>
